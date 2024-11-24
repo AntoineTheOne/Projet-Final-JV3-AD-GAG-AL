@@ -5,16 +5,16 @@ using UnityEngine;
 public class MissileGuide : MonoBehaviour
 {
     
-    [SerializeField] private GameObject RocketPrefab;
-    [SerializeField] private List<GameObject> spawnPoint;
-    [SerializeField] private GameObject target;
+    public GameObject rocketPrefab;
+    public List<GameObject> spawnPositions;
+    public GameObject target;
     public float speed = 1f;
 
 
     private void Update()
     {
         if(Input.GetMouseButtonDown(0)){
-            GameObject rocket = Instantiate(RocketPrefab, spawnPoint[Random.Range(0, 4)].transform.position, RocketPrefab.transform.rotation);
+            GameObject rocket = Instantiate(rocketPrefab, spawnPositions[Random.Range(0, 4)].transform.position, rocketPrefab.transform.rotation);
             rocket.transform.LookAt(target.transform);
             StartCoroutine(EnvoiMissile(rocket));
         }
@@ -28,6 +28,7 @@ public class MissileGuide : MonoBehaviour
             rocket.transform.LookAt(target.transform);
             yield return null;
         }
+        Destroy(rocket);
     }
 
 
