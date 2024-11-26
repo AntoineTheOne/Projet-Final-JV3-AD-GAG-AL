@@ -1080,8 +1080,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dist: 0
   maxRange: 15
-  _Projectile: {fileID: 1557436670562011987, guid: 6f7a03d1070067644b01d00d00763bdb,
-    type: 3}
   teteTourelle: {fileID: 1187452688}
   canon: {fileID: 1737224398}
   fireRate: 10

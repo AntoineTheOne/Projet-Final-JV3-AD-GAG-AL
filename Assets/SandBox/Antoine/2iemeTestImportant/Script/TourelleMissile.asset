@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4bf09329f68f14f8a5777a3f220f1d, type: 3}
   m_Name: TourelleMissile
   m_EditorClassIdentifier: 
-  maxRange: 0
-  fireRate: 0
-  _Projectile: {fileID: 0}
+  maxRange: 15
+  fireRate: 5
+  _Projectile: {fileID: 7540802930817650431, guid: e1e7ea23afb0b3d48945dc87ad421f05,
+    type: 3}

@@ -4,10 +4,8 @@ public class TurretMissile : MonoBehaviour
 
     Transform tourelle;
     public float dist;
-    public float maxRange;
-    
     public Transform teteTourelle, canon;
-    public float fireRate, nextFire;
+    public float nextFire;
     private GameObject[] monstres;
     [SerializeField] private InfoTourelle infoTour;
 
@@ -54,6 +52,7 @@ public class TurretMissile : MonoBehaviour
                     }
                 }
             }
+        
 
             return closestTarget;
         }

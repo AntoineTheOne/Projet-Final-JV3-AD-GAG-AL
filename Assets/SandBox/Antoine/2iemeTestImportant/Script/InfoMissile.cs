@@ -8,6 +8,7 @@ public class InfoMissile : ScriptableObject
     public GameObject rocketPrefab;
     public float degats;
     public float speed;
+   
     
 
 
