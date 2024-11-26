@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BarreDeVie", menuName = "HP/BarreDeVie")]
 public class BarreDeVie : ScriptableObject
 {
-    public float maxHealth;
-    public float currentHealth;
+    public float _maxHealth;
+    public float _currentHealth;
 }
