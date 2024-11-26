@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e94c84bebed0847b572bc73b82c3a9, type: 3}
   m_Name: barreDeVie
   m_EditorClassIdentifier: 
-  maxHealth: 25
-  currentHealth: 0
+  _maxHealth: 25
+  _damage: 0
