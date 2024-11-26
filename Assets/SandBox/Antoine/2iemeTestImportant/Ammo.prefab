@@ -119,5 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketPrefab: {fileID: 0}
-  target: {fileID: 0}
-  speed: 20
+  cible: {fileID: 0}
+  speed: 30
