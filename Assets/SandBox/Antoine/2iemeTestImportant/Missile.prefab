@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rocketPrefab: {fileID: 7540802930817650431}
-  target: {fileID: 0}
-  speed: 10
+  cible: {fileID: 0}
+  infoTour: {fileID: 11400000, guid: d3648837887bbca4bb03eb53df52a08c, type: 2}
 --- !u!1001 &313888681026624838
 PrefabInstance:
   m_ObjectHideFlags: 0

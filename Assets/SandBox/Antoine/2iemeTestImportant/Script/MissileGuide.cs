@@ -5,7 +5,8 @@ public class MissileGuide : MonoBehaviour
 {
     public GameObject rocketPrefab;
     public GameObject cible;
-    public float speed = 1f;
+    [SerializeField] private InfoMissile infoMissile;
+
 
     public IEnumerator EnvoiMissile(GameObject rocket)
     {
@@ -14,7 +15,7 @@ public class MissileGuide : MonoBehaviour
         while (Vector3.Distance(cible.transform.position, rocket.transform.position) > 0.3f)
         {
            
-            rocket.transform.position += (cible.transform.position - rocket.transform.position).normalized * speed * Time.deltaTime;
+            rocket.transform.position += (cible.transform.position - rocket.transform.position).normalized * infoMissile.speed * Time.deltaTime;
 
           
             rocket.transform.LookAt(cible.transform);

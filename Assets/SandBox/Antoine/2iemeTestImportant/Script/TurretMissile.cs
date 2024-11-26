@@ -2,46 +2,46 @@ using UnityEngine;
 public class TurretMissile : MonoBehaviour
 {
 
-    Transform joueur;
+    Transform tourelle;
     public float dist;
     public float maxRange;
-    [SerializeField] private GameObject _Projectile;
+    
     public Transform teteTourelle, canon;
     public float fireRate, nextFire;
-    private GameObject[] joueurs;
+    private GameObject[] monstres;
+    [SerializeField] private InfoTourelle infoTour;
 
     void Start()
     {
-        joueurs = GameObject.FindGameObjectsWithTag("Monster");
-        joueur = GetClosestTarget();
+        monstres = GameObject.FindGameObjectsWithTag("Monster");
+        tourelle = GetClosestTarget();
     }
 
     void Update()
     {
-        joueur = GetClosestTarget();
+        tourelle = GetClosestTarget();
 
-        if (joueur != null)
-        {
-            dist = Vector3.Distance(joueur.position, transform.position);
+        
+            dist = Vector3.Distance(tourelle.position, transform.position);
 
-            if (dist <= maxRange)
+            if (dist <= infoTour.maxRange)
             {
-                teteTourelle.LookAt(joueur);
+                teteTourelle.LookAt(tourelle);
 
                 if (Time.time >= nextFire)
                 {
-                    nextFire = Time.time + 1f / fireRate;
-                    fire(joueur);
+                    nextFire = Time.time + 1f / infoTour.fireRate;
+                    fire(tourelle);
                 }
             }
-        }
+        
     }
     private Transform GetClosestTarget()
         {
             Transform closestTarget = null;
             float closestDistance = Mathf.Infinity;
 
-            foreach (GameObject potentialTarget in joueurs)
+            foreach (GameObject potentialTarget in monstres)
             {
                 if (potentialTarget != null)
                 {
@@ -57,18 +57,17 @@ public class TurretMissile : MonoBehaviour
 
             return closestTarget;
         }
-    private void fire(Transform target)
+    private void fire(Transform tourelle)
     {
        
-        GameObject clone = Instantiate(_Projectile, canon.position, teteTourelle.rotation);
+        GameObject clone = Instantiate(infoTour._Projectile, canon.position, teteTourelle.rotation);
 
        
         MissileGuide missile = clone.GetComponent<MissileGuide>();
-        if (missile != null)
-        {
-            missile.cible = target.gameObject;
+        
+            missile.cible = tourelle.gameObject;
             StartCoroutine(missile.EnvoiMissile(clone)); 
-        }
+        
     }
 
     

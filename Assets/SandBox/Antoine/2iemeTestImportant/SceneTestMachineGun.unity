@@ -1086,6 +1086,7 @@ MonoBehaviour:
   canon: {fileID: 1737224398}
   fireRate: 10
   nextFire: 0
+  infoTour: {fileID: 11400000, guid: 2ed0e2d48af5ec14f97972cd80a67cbb, type: 2}
 --- !u!1 &1228244890
 GameObject:
   m_ObjectHideFlags: 0
