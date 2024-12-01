@@ -16,3 +16,4 @@ MonoBehaviour:
   fireRate: 15
   _Projectile: {fileID: 1557436670562011987, guid: 6f7a03d1070067644b01d00d00763bdb,
     type: 3}
+  MunitionEnReserveInitial: 50
