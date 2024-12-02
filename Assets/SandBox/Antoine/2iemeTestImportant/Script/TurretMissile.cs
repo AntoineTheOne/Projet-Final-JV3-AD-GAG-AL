@@ -6,16 +6,18 @@ public class TurretMissile : MonoBehaviour
     public float dist;
     public Transform teteTourelle, canon;
     public float nextFire;
-    public int munitionEnReserve = 50;
+
     private GameObject[] monstres;
     [SerializeField] private InfoTourelle infoTour;
     [SerializeField] private GameObject boutonRecharger;
+    private int munitionEnReserve;
     
 
     void Start()
     {
         monstres = GameObject.FindGameObjectsWithTag("Monster");
         tourelle = GetClosestTarget();
+        munitionEnReserve = infoTour.munitionEnReserveInitial;
     }
 
     void Update()
@@ -43,7 +45,7 @@ public class TurretMissile : MonoBehaviour
     }
 
     public void RechargementMunition(){
-        munitionEnReserve = infoTour.MunitionEnReserveInitial;
+        munitionEnReserve = infoTour.munitionEnReserveInitial;
     }
 
 

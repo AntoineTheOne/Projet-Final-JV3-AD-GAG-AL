@@ -8,7 +8,7 @@ public class InfoTourelle : ScriptableObject
     public float fireRate;
     public GameObject _Projectile;
 
-    public int MunitionEnReserveInitial;
+    public int munitionEnReserveInitial;
 
 }
 
