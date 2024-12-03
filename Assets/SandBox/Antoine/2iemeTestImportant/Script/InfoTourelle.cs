@@ -10,5 +10,7 @@ public class InfoTourelle : ScriptableObject
 
     public int munitionEnReserveInitial;
 
+    public int pointDeVie;
+
 }
 

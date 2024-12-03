@@ -1,5 +1,5 @@
 using UnityEngine;
-public class TurretMissile : MonoBehaviour
+public class TurrelleSoin : MonoBehaviour
 {
 
     Transform tourelle;
@@ -11,9 +11,6 @@ public class TurretMissile : MonoBehaviour
     [SerializeField] private InfoTourelle infoTour;
     [SerializeField] private GameObject boutonRecharger;
     private int munitionEnReserve;
-    private int pointdeVieTourelle;
-
-    [SerializeField] private GameObject pointDeSoin;
     
 
     void Start()
@@ -21,15 +18,11 @@ public class TurretMissile : MonoBehaviour
         
         tourelle = GetClosestTarget();
         munitionEnReserve = infoTour.munitionEnReserveInitial;
-        pointdeVieTourelle = infoTour.pointDeVie;
         
     }
 
     void Update()
     {
-
-        
-
         
         tourelle = GetClosestTarget();
 
