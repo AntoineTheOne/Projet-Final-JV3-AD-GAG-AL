@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 8018975757140259850}
   - component: {fileID: 565728058278653171}
   - component: {fileID: -2144543905179450732}
-  - component: {fileID: 7508870864975438013}
+  - component: {fileID: 4769771197183667607}
   m_Layer: 0
-  m_Name: Ammo
+  m_Name: MunitionSoin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8474ac292d62d846892ae59a80d695f, type: 2}
+  - {fileID: 2100000, guid: 3ebef4ea766b1ce40bcf7617482b3a7b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   rocketPrefab: {fileID: 1557436670562011987}
   cible: {fileID: 0}
   infoMissile: {fileID: 11400000, guid: 14b976af8ae8dd546bbacf1c5f1c7db6, type: 2}
---- !u!54 &7508870864975438013
+--- !u!54 &4769771197183667607
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

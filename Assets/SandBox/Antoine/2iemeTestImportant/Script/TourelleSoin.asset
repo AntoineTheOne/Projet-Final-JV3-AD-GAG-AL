@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a4bf09329f68f14f8a5777a3f220f1d, type: 3}
-  m_Name: InfoTourelle
+  m_Name: TourelleSoin
   m_EditorClassIdentifier: 
   maxRange: 20
-  fireRate: 3
+  fireRate: 2
   _Projectile: {fileID: 1557436670562011987, guid: 6f7a03d1070067644b01d00d00763bdb,
     type: 3}
   munitionEnReserveInitial: 50
+  pointDeVie: 7

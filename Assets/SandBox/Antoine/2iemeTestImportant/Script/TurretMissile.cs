@@ -8,12 +8,14 @@ public class TurretMissile : MonoBehaviour
     public float nextFire;
 
     private GameObject[] monstres;
-    [SerializeField] private InfoTourelle infoTour;
+    [SerializeField] private GameObject pointDeSoin;
+    [SerializeField] public InfoTourelle infoTour;
     [SerializeField] private GameObject boutonRecharger;
     private int munitionEnReserve;
-    private int pointdeVieTourelle;
+    public int pointdeVieTourelle;
+    public bool canHeald;
 
-    [SerializeField] private GameObject pointDeSoin;
+    
     
 
     void Start()
@@ -28,7 +30,11 @@ public class TurretMissile : MonoBehaviour
     void Update()
     {
 
-        
+        if(pointdeVieTourelle < infoTour.pointDeVie){
+            canHeald = true;
+        } else{
+            canHeald = false;
+        }
 
         
         tourelle = GetClosestTarget();
@@ -94,5 +100,13 @@ public class TurretMissile : MonoBehaviour
         
     }
 
-    
+    void OnCollisionEnter(Collision collision){
+        Debug.Log("je marche");
+        pointdeVieTourelle += 1;
+    }
+
+
+
+
+
 }

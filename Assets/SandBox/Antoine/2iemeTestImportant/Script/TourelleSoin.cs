@@ -1,5 +1,5 @@
 using UnityEngine;
-public class TurrelleSoin : MonoBehaviour
+public class TourelleSoin : MonoBehaviour
 {
 
     Transform tourelle;
@@ -7,22 +7,30 @@ public class TurrelleSoin : MonoBehaviour
     public Transform teteTourelle, canon;
     public float nextFire;
 
-    private GameObject[] monstres;
+    private GameObject[] tourelleTableau;
     [SerializeField] private InfoTourelle infoTour;
     [SerializeField] private GameObject boutonRecharger;
     private int munitionEnReserve;
     
+    private int pointdeVieTourelle;
+    [SerializeField] private GameObject pointDeSoin;
 
     void Start()
     {
         
         tourelle = GetClosestTarget();
         munitionEnReserve = infoTour.munitionEnReserveInitial;
-        
+        pointdeVieTourelle = infoTour.pointDeVie;
     }
 
     void Update()
     {
+        if(pointdeVieTourelle < infoTour.pointDeVie){
+            pointDeSoin.SetActive(true);
+        } else{
+            pointDeSoin.SetActive(false);
+            
+        }
         
         tourelle = GetClosestTarget();
 
@@ -36,7 +44,9 @@ public class TurrelleSoin : MonoBehaviour
                 if (Time.time >= nextFire && munitionEnReserve != 0)
                 {
                     nextFire = Time.time + 1f / infoTour.fireRate;
+                
                     fire(tourelle);
+
                     munitionEnReserve --;
                 }
                 if(munitionEnReserve == 0){
@@ -53,13 +63,14 @@ public class TurrelleSoin : MonoBehaviour
 
     private Transform GetClosestTarget()
         {
-            monstres = GameObject.FindGameObjectsWithTag("Monster");
+            tourelleTableau = GameObject.FindGameObjectsWithTag("Tourelle");
             Transform closestTarget = null;
             float closestDistance = Mathf.Infinity;
 
-            foreach (GameObject potentialTarget in monstres)
+            foreach (GameObject potentialTarget in tourelleTableau)
             {
-                if (potentialTarget != null)
+                if (potentialTarget != null && potentialTarget.GetComponent<TurretMissile>().canHeald == true)
+               // if (potentialTarget != null)
                 {
                     float distanceToTarget = Vector3.Distance(transform.position, potentialTarget.transform.position);
 

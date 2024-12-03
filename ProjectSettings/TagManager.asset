@@ -7,6 +7,7 @@ TagManager:
   - CinemachineTarget
   - Chest
   - Monster
+  - Tourelle
   - Soin
   layers:
   - Default
