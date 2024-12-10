@@ -1,6 +1,5 @@
 using UnityEngine;
-public class TurretMissile : MonoBehaviour
-{
+public class TurretMissile : MonoBehaviour{
 
     Transform tourelle;
     public float dist;
@@ -42,12 +41,10 @@ public class TurretMissile : MonoBehaviour
         
             dist = Vector3.Distance(tourelle.position, transform.position);
 
-            if (dist <= infoTour.maxRange)
-            {
+            if (dist <= infoTour.maxRange){
                 teteTourelle.LookAt(tourelle);
 
-                if (Time.time >= nextFire && munitionEnReserve != 0)
-                {
+                if (Time.time >= nextFire && munitionEnReserve != 0){
                     nextFire = Time.time + 1f / infoTour.fireRate;
                     fire(tourelle);
                     munitionEnReserve --;
@@ -64,16 +61,18 @@ public class TurretMissile : MonoBehaviour
     }
 
 
-    private Transform GetClosestTarget()
-        {
+    private Transform GetClosestTarget(){
             monstres = GameObject.FindGameObjectsWithTag("Monster");
+
+            if(monstres.Length == 0){
+                return null;
+            }
+
             Transform closestTarget = null;
             float closestDistance = Mathf.Infinity;
 
-            foreach (GameObject potentialTarget in monstres)
-            {
-                if (potentialTarget != null)
-                {
+            foreach (GameObject potentialTarget in monstres){
+                if (potentialTarget != null){
                     float distanceToTarget = Vector3.Distance(transform.position, potentialTarget.transform.position);
 
                     if (distanceToTarget < closestDistance)
@@ -87,8 +86,7 @@ public class TurretMissile : MonoBehaviour
 
             return closestTarget;
         }
-    private void fire(Transform tourelle)
-    {
+    private void fire(Transform tourelle){
        
         GameObject clone = Instantiate(infoTour._Projectile, canon.position, teteTourelle.rotation);
 

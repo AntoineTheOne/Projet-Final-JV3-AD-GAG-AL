@@ -17,92 +17,71 @@ public class TourelleSoin : MonoBehaviour
 
     void Start()
     {
-        
         munitionEnReserve = infoTour.munitionEnReserveInitial;
         pointdeVieTourelle = infoTour.pointDeVie;
     }
 
     void Update()
-{
-    
-    if (pointdeVieTourelle < infoTour.pointDeVie) {
-        pointDeSoin.SetActive(true); 
-    } else {
-        pointDeSoin.SetActive(false); 
-    }
-    tourelle = GetClosestTarget();
-    if (tourelle != null)
     {
-        dist = Vector3.Distance(tourelle.position, transform.position);
-
-      
-        if (dist <= infoTour.maxRange)
-        {
-            teteTourelle.LookAt(tourelle); 
+        if (pointdeVieTourelle < infoTour.pointDeVie) {
+            pointDeSoin.SetActive(true); 
+        } else {
+            pointDeSoin.SetActive(false); 
+        }
+        tourelle = GetClosestTarget();
+        if (tourelle != null){
+            dist = Vector3.Distance(tourelle.position, transform.position);
 
         
-            if (Time.time >= nextFire && munitionEnReserve != 0)
-            {
-                nextFire = Time.time + 1f / infoTour.fireRate;
-                
-                fire(tourelle); 
-                munitionEnReserve--; 
-            }
+            if (dist <= infoTour.maxRange){
+                teteTourelle.LookAt(tourelle); 
 
-          
-            if (munitionEnReserve == 0)
-            {
-                boutonRecharger.SetActive(true);
+            
+                if (Time.time >= nextFire && munitionEnReserve != 0){
+                    nextFire = Time.time + 1f / infoTour.fireRate;
+                    
+                    fire(tourelle); 
+                    munitionEnReserve--; 
+                }
+
+            
+                if (munitionEnReserve == 0){
+                    boutonRecharger.SetActive(true);
+                }
             }
         }
     }
-}
 
     public void RechargementMunition(){
         munitionEnReserve = infoTour.munitionEnReserveInitial;
     }
 
 
-    private Transform GetClosestTarget()
-        {
+    private Transform GetClosestTarget(){
            tourelleTableau = GameObject.FindGameObjectsWithTag("Tourelle");
-
             if(tourelleTableau.Length == 0){
                 return null;
             }
-
             Transform closestTarget = null;
             float closestDistance = Mathf.Infinity;
 
             foreach (GameObject potentialTarget in tourelleTableau)
             {
-                if (potentialTarget != null && potentialTarget.GetComponent<TurretMissile>().canHeald == true)
-               // if (potentialTarget != null)
-                {
+                if (potentialTarget != null && potentialTarget.GetComponent<TurretMissile>().canHeald == true){
                     float distanceToTarget = Vector3.Distance(transform.position, potentialTarget.transform.position);
-
-                    if (distanceToTarget < closestDistance)
-                    {
+                    if (distanceToTarget < closestDistance){
                         closestTarget = potentialTarget.transform;
                         closestDistance = distanceToTarget;
                     }
                 }
             }
-        
-
             return closestTarget;
         }
-    private void fire(Transform tourelle)
-    {
-       
-        GameObject clone = Instantiate(infoTour._Projectile, canon.position, teteTourelle.rotation);
-
-       
-        MissileGuide missile = clone.GetComponent<MissileGuide>();
-        
+    private void fire(Transform tourelle){
+            GameObject clone = Instantiate(infoTour._Projectile, canon.position, teteTourelle.rotation);
+            MissileGuide missile = clone.GetComponent<MissileGuide>();
             missile.cible = tourelle.gameObject;
             StartCoroutine(missile.EnvoiMissile(clone)); 
-        
     }
 
     
