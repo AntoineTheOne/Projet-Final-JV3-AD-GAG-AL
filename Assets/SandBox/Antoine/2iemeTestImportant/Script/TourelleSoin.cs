@@ -18,43 +18,45 @@ public class TourelleSoin : MonoBehaviour
     void Start()
     {
         
-        tourelle = GetClosestTarget();
         munitionEnReserve = infoTour.munitionEnReserveInitial;
         pointdeVieTourelle = infoTour.pointDeVie;
     }
 
     void Update()
-    {
-        if(pointdeVieTourelle < infoTour.pointDeVie){
-            pointDeSoin.SetActive(true);
-        } else{
-            pointDeSoin.SetActive(false);
-            
-        }
-        
-        tourelle = GetClosestTarget();
-
-        
-            dist = Vector3.Distance(tourelle.position, transform.position);
-
-            if (dist <= infoTour.maxRange)
-            {
-                teteTourelle.LookAt(tourelle);
-
-                if (Time.time >= nextFire && munitionEnReserve != 0)
-                {
-                    nextFire = Time.time + 1f / infoTour.fireRate;
-                
-                    fire(tourelle);
-
-                    munitionEnReserve --;
-                }
-                if(munitionEnReserve == 0){
-                    boutonRecharger.SetActive(true);
-                }
-            }
-        
+{
+    
+    if (pointdeVieTourelle < infoTour.pointDeVie) {
+        pointDeSoin.SetActive(true); 
+    } else {
+        pointDeSoin.SetActive(false); 
     }
+    tourelle = GetClosestTarget();
+    if (tourelle != null)
+    {
+        dist = Vector3.Distance(tourelle.position, transform.position);
+
+      
+        if (dist <= infoTour.maxRange)
+        {
+            teteTourelle.LookAt(tourelle); 
+
+        
+            if (Time.time >= nextFire && munitionEnReserve != 0)
+            {
+                nextFire = Time.time + 1f / infoTour.fireRate;
+                
+                fire(tourelle); 
+                munitionEnReserve--; 
+            }
+
+          
+            if (munitionEnReserve == 0)
+            {
+                boutonRecharger.SetActive(true);
+            }
+        }
+    }
+}
 
     public void RechargementMunition(){
         munitionEnReserve = infoTour.munitionEnReserveInitial;
@@ -63,7 +65,12 @@ public class TourelleSoin : MonoBehaviour
 
     private Transform GetClosestTarget()
         {
-            tourelleTableau = GameObject.FindGameObjectsWithTag("Tourelle");
+           tourelleTableau = GameObject.FindGameObjectsWithTag("Tourelle");
+
+            if(tourelleTableau.Length == 0){
+                return null;
+            }
+
             Transform closestTarget = null;
             float closestDistance = Mathf.Infinity;
 

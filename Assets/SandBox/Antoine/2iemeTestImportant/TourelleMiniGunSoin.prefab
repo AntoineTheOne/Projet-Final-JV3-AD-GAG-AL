@@ -528,8 +528,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TurretMissile, Assembly-CSharp
+      - m_Target: {fileID: 7270372373536128139}
+        m_TargetAssemblyTypeName: TourelleSoin, Assembly-CSharp
         m_MethodName: RechargementMunition
         m_Mode: 1
         m_Arguments:
@@ -561,7 +561,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8471244136812311252}
-  - component: {fileID: 9040315149280966395}
   m_Layer: 0
   m_Name: TeteTourelleOrigine
   m_TagString: Untagged
@@ -587,25 +586,6 @@ Transform:
   - {fileID: 8647651730706112907}
   m_Father: {fileID: 3666948777932970029}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9040315149280966395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6914660086049239632}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be90bc8365b12ee4098108fc0aee1233, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dist: 0
-  teteTourelle: {fileID: 8471244136812311252}
-  canon: {fileID: 6429443718557454515}
-  nextFire: 0
-  infoTour: {fileID: 11400000, guid: 10a6a26d6ab87a24baa7503991339225, type: 2}
-  boutonRecharger: {fileID: 3546291751131974930}
-  pointDeSoin: {fileID: 3869912731956614781}
 --- !u!1 &7209697072994920323
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +597,7 @@ GameObject:
   - component: {fileID: 3666948777932970029}
   - component: {fileID: 4454926504524060939}
   - component: {fileID: 7270372373536128139}
+  - component: {fileID: 4999806836595710053}
   m_Layer: 0
   m_Name: TourelleMiniGunSoin
   m_TagString: Untagged
@@ -683,6 +664,27 @@ MonoBehaviour:
   infoTour: {fileID: 11400000, guid: 10a6a26d6ab87a24baa7503991339225, type: 2}
   boutonRecharger: {fileID: 3546291751131974930}
   pointDeSoin: {fileID: 3869912731956614781}
+--- !u!65 &4999806836595710053
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209697072994920323}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7367662410961653768
 GameObject:
   m_ObjectHideFlags: 0

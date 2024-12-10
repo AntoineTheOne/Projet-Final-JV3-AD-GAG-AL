@@ -254,7 +254,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3743434967341570712}
+      - m_Target: {fileID: 2002199649720934702}
         m_TargetAssemblyTypeName: TurretMissile, Assembly-CSharp
         m_MethodName: RechargementMunition
         m_Mode: 1
@@ -287,7 +287,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1282265199668663825}
-  - component: {fileID: 3743434967341570712}
   m_Layer: 0
   m_Name: TeteTourelleOrigine
   m_TagString: Untagged
@@ -312,27 +311,6 @@ Transform:
   - {fileID: 5542768052276335097}
   m_Father: {fileID: 5542768052276335103}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3743434967341570712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3437714480490026038}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d21a79cda4bc6c49adec4fb7aa7ac98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dist: 0
-  teteTourelle: {fileID: 1282265199668663825}
-  canon: {fileID: 3313577423991978438}
-  nextFire: 0
-  pointDeSoin: {fileID: 7024745396832443920}
-  infoTour: {fileID: 11400000, guid: 9b703bfe3108acd49bd36e61da89823f, type: 2}
-  boutonRecharger: {fileID: 745692125010628238}
-  pointdeVieTourelle: 0
-  canHeald: 0
 --- !u!1 &5542768052276760025
 GameObject:
   m_ObjectHideFlags: 0

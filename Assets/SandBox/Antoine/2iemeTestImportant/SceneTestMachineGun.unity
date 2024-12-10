@@ -2305,6 +2305,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TourelleMiniGun
       objectReference: {fileID: 0}
+    - target: {fileID: 7024745396832443920, guid: 088b084e7c4697142a53c1f6ced13423,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7924,6 +7929,37 @@ Transform:
   - {fileID: 1857484015}
   m_Father: {fileID: 1043057830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1253171144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1253171145}
+  m_Layer: 0
+  m_Name: EmptySoin
+  m_TagString: Soin
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1253171145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253171144}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 38.813343, y: 16.810343, z: -1.7703576}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1264351513
 GameObject:
   m_ObjectHideFlags: 0
@@ -9501,6 +9537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TourelleMiniGunSoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209697072994920323, guid: 27804735281f576439673d9e1412a896,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12498,3 +12539,4 @@ SceneRoots:
   - {fileID: 2071474768}
   - {fileID: 1587814085}
   - {fileID: 550583497}
+  - {fileID: 1253171145}

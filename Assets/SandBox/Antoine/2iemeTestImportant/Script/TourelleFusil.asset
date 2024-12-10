@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: TourelleFusil
   m_EditorClassIdentifier: 
   maxRange: 20
-  fireRate: 15
+  fireRate: 5
   _Projectile: {fileID: 1557436670562011987, guid: 6f7a03d1070067644b01d00d00763bdb,
     type: 3}
   munitionEnReserveInitial: 50
   pointDeVie: 10
-  canHeald: 0
