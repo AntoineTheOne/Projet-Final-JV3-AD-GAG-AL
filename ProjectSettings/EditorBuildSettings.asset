@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/SandBox/Antoine/2iemeTestImportant/thirdParty/AurynSky/Rockets Missiles
       and Bombs/Scenes/DemoScene_RMB.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: "Assets/SandBox/Gabriel/Fin-partie_r\xE9ussi.unity"
+    guid: d717303ddd22f8f48943c9952ca2ce8b
+  - enabled: 1
+    path: Assets/SandBox/Gabriel/Accueil.unity
+    guid: c61dd826b9cb26d4295e073a6553d2ea
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0a5ab4b862d8969419a32cacb33f897a,
       type: 2}
