@@ -23,6 +23,8 @@ public class TourelleSoin : MonoBehaviour
 
     void Update()
     {
+
+        verificationPlusDevie();
         if (pointdeVieTourelle < infoTour.pointDeVie) {
             pointDeSoin.SetActive(true); 
         } else {
@@ -84,5 +86,12 @@ public class TourelleSoin : MonoBehaviour
             StartCoroutine(missile.EnvoiMissile(clone)); 
     }
 
-    
+    void verificationPlusDevie(){
+        if(pointdeVieTourelle == 0){
+         Destroy(gameObject);
+        }
+    }
+
+
+
 }

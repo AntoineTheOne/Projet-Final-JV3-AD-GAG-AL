@@ -27,7 +27,8 @@ public class TurretMissile : MonoBehaviour{
     }
 
     void Update()
-    {
+    {   
+        verificationPlusDevie();
 
         if(pointdeVieTourelle < infoTour.pointDeVie){
             canHeald = true;
@@ -103,6 +104,11 @@ public class TurretMissile : MonoBehaviour{
         pointdeVieTourelle += 1;
     }
 
+    void verificationPlusDevie(){
+        if(pointdeVieTourelle == 0){
+         Destroy(gameObject);
+        }
+    }
 
 
 
