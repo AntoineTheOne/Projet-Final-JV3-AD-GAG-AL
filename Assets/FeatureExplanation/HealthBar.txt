@@ -1,0 +1,4 @@
+***Barre de vie***
+
+- Tous les nombres sont en float. Ça aide à garder une précision maximale.
+- SVP configurer les dommages en float pour que ça fonctionne avec la config de la barre de vie
