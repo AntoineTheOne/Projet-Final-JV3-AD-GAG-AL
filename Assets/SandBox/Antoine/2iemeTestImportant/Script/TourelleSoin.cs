@@ -69,11 +69,17 @@ public class TourelleSoin : MonoBehaviour
             }
             return closestTarget;
         }
-    private void fire(Transform tourelle){
-            GameObject clone = Instantiate(infoTour._Projectile, canon.position, teteTourelle.rotation);
-            MissileGuide missile = clone.GetComponent<MissileGuide>();
-            missile.cible = tourelle.gameObject;
-            StartCoroutine(missile.EnvoiMissile(clone)); 
+    private void fire(Transform tourelle)
+    {
+
+        GameObject missile = Instantiate(infoTour._Projectile, canon.position, teteTourelle.rotation);
+        missile.GetComponent<MissileGuide>().cible = tourelle.gameObject;
+        missile.GetComponent<MissileGuide>().StartMovement();
+
+        //MissileGuide missile = clone.GetComponent<MissileGuide>();
+
+        //missile.cible = tourelle.gameObject;
+        //StartCoroutine(missile.EnvoiMissile(clone));
     }
 
     void verificationPlusDevie(){
