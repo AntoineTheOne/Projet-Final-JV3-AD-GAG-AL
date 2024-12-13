@@ -9,8 +9,8 @@ public class TurretMissile : MonoBehaviour{
     private GameObject[] monstres;
     [SerializeField] private GameObject pointDeSoin;
     [SerializeField] public InfoTourelle infoTour;
-    [SerializeField] private GameObject boutonRecharger;
-    private int munitionEnReserve;
+   
+ 
     public int pointdeVieTourelle;
     public bool canHeald;
 
@@ -21,7 +21,6 @@ public class TurretMissile : MonoBehaviour{
     {
         
         tourelle = GetClosestTarget();
-        munitionEnReserve = infoTour.munitionEnReserveInitial;
         pointdeVieTourelle = infoTour.pointDeVie;
         
     }
@@ -35,7 +34,6 @@ public class TurretMissile : MonoBehaviour{
         } else{
             canHeald = false;
         }
-
         
         tourelle = GetClosestTarget();
 
@@ -45,22 +43,15 @@ public class TurretMissile : MonoBehaviour{
             if (dist <= infoTour.maxRange){
                 teteTourelle.LookAt(tourelle);
 
-                if (Time.time >= nextFire && munitionEnReserve != 0){
+                if (Time.time >= nextFire){
                     nextFire = Time.time + 1f / infoTour.fireRate;
                     fire(tourelle);
-                    munitionEnReserve --;
+                   
                 }
-                if(munitionEnReserve == 0){
-                    boutonRecharger.SetActive(true);
-                }
+                
             }
         
     }
-
-    public void RechargementMunition(){
-        munitionEnReserve = infoTour.munitionEnReserveInitial;
-    }
-
 
     private Transform GetClosestTarget(){
             monstres = GameObject.FindGameObjectsWithTag("Monster");

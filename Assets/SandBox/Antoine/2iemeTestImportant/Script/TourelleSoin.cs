@@ -9,15 +9,13 @@ public class TourelleSoin : MonoBehaviour
 
     private GameObject[] tourelleTableau;
     [SerializeField] private InfoTourelle infoTour;
-    [SerializeField] private GameObject boutonRecharger;
-    private int munitionEnReserve;
+    
     
     private int pointdeVieTourelle;
     [SerializeField] private GameObject pointDeSoin;
 
     void Start()
     {
-        munitionEnReserve = infoTour.munitionEnReserveInitial;
         pointdeVieTourelle = infoTour.pointDeVie;
     }
 
@@ -39,23 +37,15 @@ public class TourelleSoin : MonoBehaviour
                 teteTourelle.LookAt(tourelle); 
 
             
-                if (Time.time >= nextFire && munitionEnReserve != 0){
+                if (Time.time >= nextFire){
                     nextFire = Time.time + 1f / infoTour.fireRate;
                     
-                    fire(tourelle); 
-                    munitionEnReserve--; 
+                    fire(tourelle);  
                 }
 
             
-                if (munitionEnReserve == 0){
-                    boutonRecharger.SetActive(true);
-                }
             }
         }
-    }
-
-    public void RechargementMunition(){
-        munitionEnReserve = infoTour.munitionEnReserveInitial;
     }
 
 

@@ -15,4 +15,4 @@ MonoBehaviour:
   rocketPrefab: {fileID: 7540802930817650431, guid: e1e7ea23afb0b3d48945dc87ad421f05,
     type: 3}
   degats: 5
-  speed: 15
+  speed: 3

@@ -24,7 +24,15 @@ public class MissileGuide : MonoBehaviour
             yield return null;  
         }
 
-        
+        if(gameObject == null){
+            yield break;
+        }
         Destroy(rocket);  
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+       Destroy(gameObject);
+    }
+
 }
