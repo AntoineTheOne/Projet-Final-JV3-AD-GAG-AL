@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using UnityEngine;
 public class TurretMissile : MonoBehaviour{
 
@@ -9,11 +10,11 @@ public class TurretMissile : MonoBehaviour{
     private GameObject[] monstres;
     [SerializeField] private GameObject pointDeSoin;
     [SerializeField] public InfoTourelle infoTour;
-    [SerializeField] private GameObject boutonRecharger;
-    private int munitionEnReserve;
+   
+ 
     public int pointdeVieTourelle;
     public bool canHeald;
-
+    private AudioSource audioSource;
     
     
 
@@ -21,9 +22,8 @@ public class TurretMissile : MonoBehaviour{
     {
         
         tourelle = GetClosestTarget();
-        munitionEnReserve = infoTour.munitionEnReserveInitial;
         pointdeVieTourelle = infoTour.pointDeVie;
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -35,38 +35,36 @@ public class TurretMissile : MonoBehaviour{
         } else{
             canHeald = false;
         }
-
         
         tourelle = GetClosestTarget();
 
-        
+       if(tourelle != null) { 
             dist = Vector3.Distance(tourelle.position, transform.position);
+        
 
             if (dist <= infoTour.maxRange){
                 teteTourelle.LookAt(tourelle);
 
-                if (Time.time >= nextFire && munitionEnReserve != 0){
+                if (Time.time >= nextFire){
                     nextFire = Time.time + 1f / infoTour.fireRate;
                     fire(tourelle);
-                    munitionEnReserve --;
+                   
                 }
-                if(munitionEnReserve == 0){
-                    boutonRecharger.SetActive(true);
-                }
+                
             }
+        }
+           
         
     }
-
-    public void RechargementMunition(){
-        munitionEnReserve = infoTour.munitionEnReserveInitial;
-    }
-
 
     private Transform GetClosestTarget(){
             monstres = GameObject.FindGameObjectsWithTag("Monster");
 
             if(monstres.Length == 0){
+            
+        
                 return null;
+                
             }
 
             Transform closestTarget = null;
@@ -89,19 +87,25 @@ public class TurretMissile : MonoBehaviour{
         }
     private void fire(Transform tourelle){
        
-        GameObject clone = Instantiate(infoTour._Projectile, canon.position, teteTourelle.rotation);
+        GameObject missile = Instantiate(infoTour._Projectile, canon.position, teteTourelle.rotation);
+        missile.GetComponent<MissileGuide>().cible = tourelle.gameObject;
+        missile.GetComponent<MissileGuide>().StartMovement();
 
-       
-        MissileGuide missile = clone.GetComponent<MissileGuide>();
-        
-            missile.cible = tourelle.gameObject;
-            StartCoroutine(missile.EnvoiMissile(clone)); 
-        
+        //MissileGuide missile = clone.GetComponent<MissileGuide>();
+
+        //missile.cible = tourelle.gameObject;
+        //StartCoroutine(missile.EnvoiMissile(clone));
+        audioSource.Play();
     }
 
     void OnCollisionEnter(Collision collision){
-        Debug.Log("je marche");
-        pointdeVieTourelle += 1;
+        if(collision.gameObject.tag == "Soin")
+        {
+            pointdeVieTourelle += 1;
+            Debug.Log("ALLO");
+        }
+        
+        
     }
 
     void verificationPlusDevie(){
