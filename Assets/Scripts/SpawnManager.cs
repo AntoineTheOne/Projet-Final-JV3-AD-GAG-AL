@@ -28,7 +28,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ennemisEnJeu = GameObject.FindGameObjectsWithTag("ennemi").Length; //<-- Changer ici pour le bon tag
+        ennemisEnJeu = GameObject.FindGameObjectsWithTag("Monster").Length; //<-- Changer ici pour le bon tag
 
         if(isWaiting){
             return;
