@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private float spawnTimerTrooper = 3;
     [SerializeField] private float spawnTimerRange = 5;
@@ -10,14 +10,13 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject trooper;
     [SerializeField] private GameObject range;
     [SerializeField] private GameObject healer;
-    private float timerTrooper;
-    private float timerRange;
-    private float timerHealer;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    [SerializeField] private Transform[] spawnPoint;
+
+    float timerTrooper;
+    float timerRange;
+    float timerHealer;
+
 
     // Update is called once per frame
     void Update()
@@ -39,16 +38,19 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void SpawnTroopers(){
-        Instantiate(trooper);
+    void SpawnTroopers(){
+        int randomPoint = Random.Range(0, spawnPoint.Length);
+        Instantiate(trooper, spawnPoint[randomPoint].position, spawnPoint[randomPoint].rotation);
         timerTrooper = 0;
     }
-    public void SpawnRange(){
-        Instantiate(range);
+    void SpawnRange(){
+        int randomPoint = Random.Range(0, spawnPoint.Length);
+        Instantiate(range, spawnPoint[randomPoint].position, spawnPoint[randomPoint].rotation);
         timerRange= 0;
     }
-    public void SpawnHealer(){
-        Instantiate(healer);
+    void SpawnHealer(){
+        int randomPoint = Random.Range(0, spawnPoint.Length);
+        Instantiate(healer, spawnPoint[randomPoint].position, spawnPoint[randomPoint].rotation);
         timerHealer = 0;
     }
 }
