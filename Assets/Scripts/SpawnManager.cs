@@ -10,31 +10,49 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject trooper;
     [SerializeField] private GameObject range;
     [SerializeField] private GameObject healer;
-
     [SerializeField] private Transform[] spawnPoint;
 
     float timerTrooper;
     float timerRange;
     float timerHealer;
 
+    //Systeme de vagues d'ennemis
+    [SerializeField] int enemiesPerWave; //nb maximal d'ennemis en jeu
+    int ennemisEnJeu; //nb d'ennemis en jeu
+    bool isWaiting; //Savoir si on est en pause ou non
+    
+
 
     // Update is called once per frame
     void Update()
     {
-        timerTrooper += Time.deltaTime;
-        timerRange += Time.deltaTime;
-        timerHealer += Time.deltaTime;
+        ennemisEnJeu = GameObject.FindGameObjectsWithTag("ennemi").Length; //<-- Changer ici pour le bon tag
 
-        if(timerTrooper > spawnTimerTrooper){
-            SpawnTroopers();
+        if(isWaiting){
+            return;
         }
 
-        else if(timerRange > spawnTimerRange){
-            SpawnRange();
+        if(ennemisEnJeu <= enemiesPerWave){
+            timerTrooper += Time.deltaTime;
+            timerRange += Time.deltaTime;
+            timerHealer += Time.deltaTime;
+            Debug.Log("ennemis en jeu: " + ennemisEnJeu);
+
+            if(timerTrooper > spawnTimerTrooper){
+                SpawnTroopers();
+            }
+
+            else if(timerRange > spawnTimerRange){
+                SpawnRange();
+            }
+
+            else if(timerHealer >spawnTimerHealer){
+                SpawnHealer();
+            }
         }
 
-        else if(timerHealer >spawnTimerHealer){
-            SpawnHealer();
+        else{
+            StartCoroutine(WaitBeforeSpawning());
         }
     }
 
@@ -52,5 +70,13 @@ public class SpawnManager : MonoBehaviour
         int randomPoint = Random.Range(0, spawnPoint.Length);
         Instantiate(healer, spawnPoint[randomPoint].position, spawnPoint[randomPoint].rotation);
         timerHealer = 0;
+    }
+
+    IEnumerator WaitBeforeSpawning()
+    {
+        isWaiting = true;
+        Debug.Log("5 secondes avant la prochaine vague");
+        yield return new WaitForSeconds(5);
+        isWaiting = false;
     }
 }
