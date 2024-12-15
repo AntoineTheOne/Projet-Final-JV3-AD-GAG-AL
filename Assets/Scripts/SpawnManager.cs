@@ -17,8 +17,10 @@ public class SpawnManager : MonoBehaviour
     float timerHealer;
 
     //Systeme de vagues d'ennemis
-    [SerializeField] int enemiesPerWave; //nb maximal d'ennemis en jeu
+    [SerializeField] int enemiesPerWave = 15; //nb maximal d'ennemis en jeu
+    [SerializeField] int waveOffset = 5; //nb d'ennemis en plus a chaque vague
     int ennemisEnJeu; //nb d'ennemis en jeu
+    
     bool isWaiting; //Savoir si on est en pause ou non
     
 
@@ -77,6 +79,7 @@ public class SpawnManager : MonoBehaviour
         isWaiting = true;
         Debug.Log("5 secondes avant la prochaine vague");
         yield return new WaitForSeconds(5);
+        enemiesPerWave += waveOffset; //<-- Incrementation pour plus d'ennemis
         isWaiting = false;
     }
 }
