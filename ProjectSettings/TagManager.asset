@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - ennemi
+  - Monster
+  - Chest
+  - Soin
+  - Tourelle
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX

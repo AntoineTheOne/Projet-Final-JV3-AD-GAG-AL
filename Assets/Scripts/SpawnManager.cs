@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject healer;
     [SerializeField] private Transform[] spawnPoint;
 
-    [SerializeField] private int enemiAuTotal = 0;
+    [SerializeField] private int enemiDejaApparu = 0;
 
     float timerTrooper;
     float timerRange;
@@ -36,7 +36,7 @@ public class SpawnManager : MonoBehaviour
             return;
         }
 
-        if(ennemisEnJeu <= enemiesPerWave && enemiAuTotal < enemiesPerWave){
+        if(ennemisEnJeu <= enemiesPerWave && enemiDejaApparu < enemiesPerWave){
             timerTrooper += Time.deltaTime;
             timerRange += Time.deltaTime;
             timerHealer += Time.deltaTime;
@@ -44,21 +44,21 @@ public class SpawnManager : MonoBehaviour
 
             if(timerTrooper > spawnTimerTrooper && ennemisEnJeu < enemiesPerWave){
                 SpawnTroopers();
-                enemiAuTotal++;
+                enemiDejaApparu++;
             }
 
             else if(timerRange > spawnTimerRange && ennemisEnJeu < enemiesPerWave){
                 SpawnRange();
-                enemiAuTotal++;
+                enemiDejaApparu++;
             }
 
             else if(timerHealer >spawnTimerHealer && ennemisEnJeu < enemiesPerWave){
                 SpawnHealer();
-                enemiAuTotal++;
+                enemiDejaApparu++;
             }
         }
 
-        else if(ennemisEnJeu == 0 && enemiAuTotal == enemiesPerWave){
+        else if(ennemisEnJeu == 0 && enemiDejaApparu == enemiesPerWave){
             StartCoroutine(WaitBeforeSpawning());
         }
 
@@ -90,6 +90,6 @@ public class SpawnManager : MonoBehaviour
         yield return new WaitForSeconds(5);
         enemiesPerWave += waveOffset; //<-- Incrementation pour plus d'ennemis
         isWaiting = false;
-        enemiAuTotal = 0;
+        enemiDejaApparu = 0;
     }
 }
