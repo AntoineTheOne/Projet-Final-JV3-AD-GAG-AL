@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject healer;
     [SerializeField] private Transform[] spawnPoint;
 
+    [SerializeField] private int enemiDejaApparu = 0;
+
     float timerTrooper;
     float timerRange;
     float timerHealer;
@@ -28,33 +30,40 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ennemisEnJeu = GameObject.FindGameObjectsWithTag("ennemi").Length; //<-- Changer ici pour le bon tag
+        ennemisEnJeu = GameObject.FindGameObjectsWithTag("Monster").Length; //<-- Changer ici pour le bon tag
 
         if(isWaiting){
             return;
         }
 
-        if(ennemisEnJeu <= enemiesPerWave){
+        if(ennemisEnJeu <= enemiesPerWave && enemiDejaApparu < enemiesPerWave){
             timerTrooper += Time.deltaTime;
             timerRange += Time.deltaTime;
             timerHealer += Time.deltaTime;
             Debug.Log("ennemis en jeu: " + ennemisEnJeu);
 
-            if(timerTrooper > spawnTimerTrooper){
+            if(timerTrooper > spawnTimerTrooper && ennemisEnJeu < enemiesPerWave){
                 SpawnTroopers();
+                enemiDejaApparu++;
             }
 
-            else if(timerRange > spawnTimerRange){
+            else if(timerRange > spawnTimerRange && ennemisEnJeu < enemiesPerWave){
                 SpawnRange();
+                enemiDejaApparu++;
             }
 
-            else if(timerHealer >spawnTimerHealer){
+            else if(timerHealer >spawnTimerHealer && ennemisEnJeu < enemiesPerWave){
                 SpawnHealer();
+                enemiDejaApparu++;
             }
         }
 
-        else{
+        else if(ennemisEnJeu == 0 && enemiDejaApparu == enemiesPerWave){
             StartCoroutine(WaitBeforeSpawning());
+        }
+
+        else{
+            return;
         }
     }
 
@@ -81,5 +90,6 @@ public class SpawnManager : MonoBehaviour
         yield return new WaitForSeconds(5);
         enemiesPerWave += waveOffset; //<-- Incrementation pour plus d'ennemis
         isWaiting = false;
+        enemiDejaApparu = 0;
     }
 }
