@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20d85d78f90af349b6a28ae2fd6e2ca, type: 3}
   m_Name: Niveau_1
   m_EditorClassIdentifier: 
-  enemiesPerWave: 15
+  enemiesPerWave: 20
   waveOffset: 5
   maxWave: 5
-  trooper: {fileID: 8120052684220204235, guid: 53dfcf0424137e04faff81b4c93433bb, type: 3}
-  range: {fileID: 1811310399630256215, guid: 5c15dab5d906ce6438edda8e6439ece3, type: 3}
-  healer: {fileID: 489422306830084542, guid: e0b014b39004ae844bea35b331ab5867, type: 3}
-  timerTrooper: 3
-  timerRange: 5
-  timerHealer: 10
+  spawnTimerTrooper: 1
+  spawnTimerRange: 2
+  spawnTimerHealer: 3
+  trooper: {fileID: 1205725180365540017, guid: d18ea1e302a0e45419913f624b145eb0, type: 3}
+  range: {fileID: 8753530878790069811, guid: 34007f8e8bda8574dbca3a6a4352522f, type: 3}
+  healer: {fileID: 3112853047309237712, guid: 174491c7d4cffc64980e7fdf707f1afa, type: 3}
+  timerTrooper: 1.7426462
+  timerRange: 3.731964
+  timerHealer: 8.731459
