@@ -20,26 +20,35 @@ int ennemisEnJeu; //nb d'ennemis en jeu
 
  [SerializeField] private string sceneName;
     [SerializeField] private string sceneNameEchec;
-    private float tourPrincipalActive = 0;
+    
 
 private GameObject[] tourPrincipal;
 public int spawnTry;
 
 [SerializeField] private InfoNiveau infoNiveau;
 
-private void Update() {
 
-if(tourPrincipalActive == 1 && tourPrincipal == null)
-            {
-                SceneManager.LoadScene(sceneNameEchec);
-            }
+
+
+
+    private void Start()
+    {
+        infoNiveau.timerTrooper = 0;
+        infoNiveau.timerRange = 0;
+        infoNiveau.timerHealer = 0;
+    }
+
+
+
+
+    private void Update() {
+
+
 
     tourPrincipal = GameObject.FindGameObjectsWithTag("TourPrincipal");
 
 
-
-
-    if(vagueFini == infoNiveau.maxWave){
+        if (vagueFini == infoNiveau.maxWave){
        SceneManager.LoadScene(sceneName);
 
     }
@@ -52,7 +61,7 @@ if(tourPrincipalActive == 1 && tourPrincipal == null)
          }
 
 if(tourPrincipal.Length == 1){
-            tourPrincipalActive = 1;
+           
 
             
         

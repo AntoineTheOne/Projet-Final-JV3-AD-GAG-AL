@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe0c6a7883a2f84194cb92f5644cb52, type: 3}
-  m_Name: DegatMunition
+  m_Script: {fileID: 11500000, guid: 7e74696396cee2942835b418c8ef373a, type: 3}
+  m_Name: TourPrincipal
   m_EditorClassIdentifier: 
-  degatLaser: 2
-  degatMissile: 5
-  degatSniper: 10
-  degatMonstre1: 5
-  degatMonstre2: 4
-  degatMonstre3: 6
+  vieTourPrincipal: 25

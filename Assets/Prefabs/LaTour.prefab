@@ -540,6 +540,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7011389215249828271}
   - component: {fileID: -2637908242028305228}
+  - component: {fileID: 2209301457606885344}
   m_Layer: 0
   m_Name: LaTour
   m_TagString: Tourelle
@@ -662,6 +663,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2209301457606885344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3435853200010925539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97dec1bf93942cf439b60f4c2ce747ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoTourPrincipal: {fileID: 11400000, guid: a187bedcdcdb73e41bdc7c8b5f279c5d, type: 2}
+  infoDegat: {fileID: 11400000, guid: e6b18c8d8b47e434ebf5fed604df0205, type: 2}
+  sceneName: FinDePartieEchec
 --- !u!1 &3928004110825374057
 GameObject:
   m_ObjectHideFlags: 0
