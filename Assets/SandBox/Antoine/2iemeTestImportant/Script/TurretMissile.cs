@@ -8,12 +8,9 @@ public class TurretMissile : MonoBehaviour{
     public float nextFire;
 
     private GameObject[] monstres;
-    [SerializeField] private GameObject pointDeSoin;
     [SerializeField] public InfoTourelle infoTour;
    
- 
-    public int pointdeVieTourelle;
-    public bool canHeald;
+    
     private AudioSource audioSource;
     
     
@@ -22,19 +19,12 @@ public class TurretMissile : MonoBehaviour{
     {
         
         tourelle = GetClosestTarget();
-        pointdeVieTourelle = infoTour.pointDeVie;
         audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {   
-        verificationPlusDevie();
-
-        if(pointdeVieTourelle < infoTour.pointDeVie){
-            canHeald = true;
-        } else{
-            canHeald = false;
-        }
+       
         
         tourelle = GetClosestTarget();
 
@@ -98,21 +88,7 @@ public class TurretMissile : MonoBehaviour{
         audioSource.Play();
     }
 
-    void OnCollisionEnter(Collision collision){
-        if(collision.gameObject.tag == "Soin")
-        {
-            pointdeVieTourelle += 1;
-            Debug.Log("ALLO");
-        }
-        
-        
-    }
-
-    void verificationPlusDevie(){
-        if(pointdeVieTourelle == 0){
-         Destroy(gameObject);
-        }
-    }
+   
 
 
 

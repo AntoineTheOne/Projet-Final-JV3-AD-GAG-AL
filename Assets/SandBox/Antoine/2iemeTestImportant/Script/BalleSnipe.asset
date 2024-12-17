@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe0c6a7883a2f84194cb92f5644cb52, type: 3}
-  m_Name: DegatMunition
+  m_Script: {fileID: 11500000, guid: d921de7133298964eb0cc511ccdbe3a7, type: 3}
+  m_Name: BalleSnipe
   m_EditorClassIdentifier: 
-  degatLaser: 2
-  degatMissile: 5
-  degatSniper: 15
+  rocketPrefab: {fileID: 1557436670562011987, guid: 8b77450345aabc644bc6a754908d098a,
+    type: 3}
+  degats: 0
+  speed: 10

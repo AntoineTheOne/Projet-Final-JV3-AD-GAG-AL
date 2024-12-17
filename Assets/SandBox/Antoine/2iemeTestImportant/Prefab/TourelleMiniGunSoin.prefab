@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 2822889714693928286}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.59800005, z: 2.24}
+  m_LocalPosition: {x: 0, y: 0.59800005, z: 2.766}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -168,37 +168,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.3778768, y: 9.146568, z: 5.262141}
   m_Center: {x: 0.00000054186035, y: -2.7999895, z: 1.4794419}
---- !u!1 &3869912731956614781
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3687912649842266490}
-  m_Layer: 0
-  m_Name: PointDeSoin
-  m_TagString: Soin
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &3687912649842266490
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3869912731956614781}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2670002, y: 1.6400009, z: 20.739}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3666948777932970029}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6097724763871755475
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,10 +338,9 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.53, y: -0.0000009536743, z: 9.43}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3687912649842266490}
   - {fileID: 4430311367620202322}
   - {fileID: 8471244136812311252}
   m_Father: {fileID: 0}
@@ -407,7 +375,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7209697072994920323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be90bc8365b12ee4098108fc0aee1233, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d21a79cda4bc6c49adec4fb7aa7ac98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dist: 0
@@ -415,7 +383,6 @@ MonoBehaviour:
   canon: {fileID: 6429443718557454515}
   nextFire: 0
   infoTour: {fileID: 11400000, guid: 10a6a26d6ab87a24baa7503991339225, type: 2}
-  pointDeSoin: {fileID: 3869912731956614781}
 --- !u!65 &4999806836595710053
 BoxCollider:
   m_ObjectHideFlags: 0
