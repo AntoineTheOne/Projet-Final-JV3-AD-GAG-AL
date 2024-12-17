@@ -12881,6 +12881,7 @@ MonoBehaviour:
   enemiDejaApparu: 0
   enemiesPerWave: 15
   waveOffset: 5
+  sceneName: Niveau_2
   spawnTry: 1000
 --- !u!4 &1127737653
 Transform:
