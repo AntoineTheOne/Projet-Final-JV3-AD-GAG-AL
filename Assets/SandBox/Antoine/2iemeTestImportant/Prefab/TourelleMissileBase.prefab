@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1042998718951110806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 847964834988248513}
+  m_Layer: 0
+  m_Name: Canon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &847964834988248513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042998718951110806}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -9.09, z: 2.83}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5303843591828640547}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &2070587084394412926
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +95,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6093861056478894270}
+  - {fileID: 847964834988248513}
   m_Father: {fileID: 2447043928613200217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9039674298655884888
@@ -349,7 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dist: 0
   teteTourelle: {fileID: 2447043928613200217}
-  canon: {fileID: 6093861056478894270}
+  canon: {fileID: 847964834988248513}
   nextFire: 0
   pointDeSoin: {fileID: 2070587084394412926}
   infoTour: {fileID: 11400000, guid: 2ed0e2d48af5ec14f97972cd80a67cbb, type: 2}
@@ -482,7 +514,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1071807871204550, guid: b59fbbcf93111f54eb0fb67e903c97f5, type: 3}
       propertyPath: m_Name
-      value: Canon
+      value: Missile
       objectReference: {fileID: 0}
     - target: {fileID: 4384342305136718, guid: b59fbbcf93111f54eb0fb67e903c97f5, type: 3}
       propertyPath: m_LocalScale.x

@@ -16,12 +16,14 @@ public class TourelleSoin : MonoBehaviour
 
     void Start()
     {
+        
         pointdeVieTourelle = infoTour.pointDeVie;
     }
 
     void Update()
     {
-
+        Debug.Log(tourelle);
+        
         verificationPlusDevie();
         if (pointdeVieTourelle < infoTour.pointDeVie) {
             pointDeSoin.SetActive(true); 
@@ -50,18 +52,21 @@ public class TourelleSoin : MonoBehaviour
 
 
     private Transform GetClosestTarget(){
-           tourelleTableau = GameObject.FindGameObjectsWithTag("Tourelle");
+        tourelleTableau = GameObject.FindGameObjectsWithTag("Tourelle");
             if(tourelleTableau.Length == 0){
                 return null;
+                Debug.Log("fonctionne pas 1");
             }
             Transform closestTarget = null;
             float closestDistance = Mathf.Infinity;
 
             foreach (GameObject potentialTarget in tourelleTableau)
             {
-                if (potentialTarget != null && potentialTarget.GetComponent<TurretMissile>().canHeald == true){
+                if (potentialTarget.GetComponent<TurretMissile>().canHeald == true){
+                    Debug.Log("fonctionne pas 2");
                     float distanceToTarget = Vector3.Distance(transform.position, potentialTarget.transform.position);
                     if (distanceToTarget < closestDistance){
+                        Debug.Log("fonctionne pas 3");
                         closestTarget = potentialTarget.transform;
                         closestDistance = distanceToTarget;
                     }

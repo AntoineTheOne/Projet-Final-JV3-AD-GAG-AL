@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Meta.XR.MRUtilityKit;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class SpawnManager : MonoBehaviour
 {
 
@@ -15,13 +17,14 @@ public class SpawnManager : MonoBehaviour
 
 public MRUKAnchor.SceneLabels spawnLabels;
 public float normalOffset;
+[SerializeField] private float vagueFini = 0;
 
 [SerializeField] private int enemiDejaApparu = 0;
 
 float timerTrooper;
 float timerRange;
 float timerHealer;
-float vagueFini = 0;
+
 
 [SerializeField] int enemiesPerWave = 15; //nb maximal d'ennemis en jeu
 [SerializeField] int waveOffset = 5; //nb d'ennemis en plus a chaque vague
@@ -29,14 +32,25 @@ int ennemisEnJeu; //nb d'ennemis en jeu
 
  bool isWaiting; //Savoir si on est en pause ou non
 
+ [SerializeField] private string sceneName;
+
+private GameObject[] tourPrincipal;
 
 
 public int spawnTry;
 
 private void Update() {
 
+
+
+    tourPrincipal = GameObject.FindGameObjectsWithTag("TourPrincipal");
+
+
+
+
     if(vagueFini == 5){
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       SceneManager.LoadScene(sceneName);
+
     }
 
     ennemisEnJeu = GameObject.FindGameObjectsWithTag("Monster").Length;
@@ -46,7 +60,8 @@ private void Update() {
              return;
          }
 
-
+if(tourPrincipal.Length == 1){
+        
     if(!MRUK.Instance && MRUK.Instance.IsInitialized)
         return;
 
@@ -81,6 +96,10 @@ private void Update() {
             return;
         }
     }
+
+
+ }
+
 
    public void SpawnTroopers(){
 
@@ -185,13 +204,14 @@ public void SpawnHealer(){
 
 IEnumerator WaitBeforeSpawning()
     {
+        vagueFini++;
         isWaiting = true;
         Debug.Log("5 secondes avant la prochaine vague");
         yield return new WaitForSeconds(5);
         enemiesPerWave += waveOffset; //<-- Incrementation pour plus d'ennemis
         isWaiting = false;
         enemiDejaApparu = 0;
-        vagueFini++;
+        
 
 
     }
