@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: TourelleSoin
   m_EditorClassIdentifier: 
   maxRange: 20
-  fireRate: 2
-  _Projectile: {fileID: 1557436670562011987, guid: 6f7a03d1070067644b01d00d00763bdb,
+  fireRate: 1
+  _Projectile: {fileID: 1557436670562011987, guid: c0209a2568d12a841bbd065e761ff24f,
     type: 3}
-  munitionEnReserveInitial: 50
   pointDeVie: 7

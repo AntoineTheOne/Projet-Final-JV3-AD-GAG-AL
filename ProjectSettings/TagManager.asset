@@ -4,11 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - CinemachineTarget
-  - Chest
+  - ennemi
   - Monster
-  - Tourelle
+  - Chest
   - Soin
+  - Tourelle
+  - CinemachineTarget
+  - Laser
+  - Missile
   layers:
   - Default
   - TransparentFX
