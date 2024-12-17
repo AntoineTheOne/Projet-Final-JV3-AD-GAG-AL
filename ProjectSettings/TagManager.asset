@@ -12,6 +12,7 @@ TagManager:
   - CinemachineTarget
   - Laser
   - Missile
+  - TourPrincipal
   layers:
   - Default
   - TransparentFX

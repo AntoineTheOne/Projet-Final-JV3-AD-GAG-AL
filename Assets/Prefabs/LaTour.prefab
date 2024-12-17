@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 7658834401521099627}
   m_Layer: 0
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: TourPrincipal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: -2637908242028305228}
   m_Layer: 0
   m_Name: LaTour
-  m_TagString: Untagged
+  m_TagString: Tourelle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
