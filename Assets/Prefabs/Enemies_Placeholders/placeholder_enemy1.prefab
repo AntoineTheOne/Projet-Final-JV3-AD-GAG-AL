@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2901777643273751711}
   - component: {fileID: 5661403679801133502}
   - component: {fileID: -8888250515231474419}
+  - component: {fileID: 2842472299260907290}
   m_Layer: 0
   m_Name: placeholder_enemy1
   m_TagString: Monster
@@ -143,3 +144,17 @@ NavMeshAgent:
   m_BaseOffset: 2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2842472299260907290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120052684220204235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc2d80a4909bed439d82f8c6de0c5db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoMonster: {fileID: 11400000, guid: a5dc8000e4986c54daa50684311160b4, type: 2}
+  infoDegat: {fileID: 11400000, guid: e6b18c8d8b47e434ebf5fed604df0205, type: 2}

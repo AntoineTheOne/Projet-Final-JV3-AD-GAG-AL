@@ -1,41 +1,56 @@
 using System.Collections;
 using System.Collections.Generic;
+using Meta.XR.MRUtilityKit;
 using UnityEngine;
-
 public class SpawnManager : MonoBehaviour
 {
-    [SerializeField] private float spawnTimerTrooper = 3;
-    [SerializeField] private float spawnTimerRange = 5;
-    [SerializeField] private float spawnTimerHealer = 10;
-    [SerializeField] private GameObject trooper;
-    [SerializeField] private GameObject range;
-    [SerializeField] private GameObject healer;
-    [SerializeField] private Transform[] spawnPoint;
 
-    [SerializeField] private int enemiDejaApparu = 0;
+[SerializeField] private float spawnTimerTrooper = 3;
+[SerializeField] private float spawnTimerRange = 5;
+[SerializeField] private float spawnTimerHealer = 10;
+ [SerializeField] private GameObject trooper;
+ [SerializeField] private GameObject range;
+ [SerializeField] private GameObject healer;
+[SerializeField] private float minEdgeDistance = 0.3f;
 
-    float timerTrooper;
-    float timerRange;
-    float timerHealer;
+public MRUKAnchor.SceneLabels spawnLabels;
+public float normalOffset;
 
-    //Systeme de vagues d'ennemis
-    [SerializeField] int enemiesPerWave = 15; //nb maximal d'ennemis en jeu
-    [SerializeField] int waveOffset = 5; //nb d'ennemis en plus a chaque vague
-    int ennemisEnJeu; //nb d'ennemis en jeu
+[SerializeField] private int enemiDejaApparu = 0;
+
+float timerTrooper;
+float timerRange;
+float timerHealer;
+float vagueFini = 0;
+
+[SerializeField] int enemiesPerWave = 15; //nb maximal d'ennemis en jeu
+[SerializeField] int waveOffset = 5; //nb d'ennemis en plus a chaque vague
+int ennemisEnJeu; //nb d'ennemis en jeu
+
+ bool isWaiting; //Savoir si on est en pause ou non
+
+
+
+public int spawnTry;
+
+private void Update() {
+
+    if(vagueFini == 5){
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    }
+
+    ennemisEnJeu = GameObject.FindGameObjectsWithTag("Monster").Length;
+
+
+    if(isWaiting){
+             return;
+         }
+
+
+    if(!MRUK.Instance && MRUK.Instance.IsInitialized)
+        return;
+
     
-    bool isWaiting; //Savoir si on est en pause ou non
-    
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        ennemisEnJeu = GameObject.FindGameObjectsWithTag("Monster").Length; //<-- Changer ici pour le bon tag
-
-        if(isWaiting){
-            return;
-        }
-
         if(ennemisEnJeu <= enemiesPerWave && enemiDejaApparu < enemiesPerWave){
             timerTrooper += Time.deltaTime;
             timerRange += Time.deltaTime;
@@ -67,23 +82,108 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    void SpawnTroopers(){
-        int randomPoint = Random.Range(0, spawnPoint.Length);
-        Instantiate(trooper, spawnPoint[randomPoint].position, spawnPoint[randomPoint].rotation);
-        timerTrooper = 0;
-    }
-    void SpawnRange(){
-        int randomPoint = Random.Range(0, spawnPoint.Length);
-        Instantiate(range, spawnPoint[randomPoint].position, spawnPoint[randomPoint].rotation);
-        timerRange= 0;
-    }
-    void SpawnHealer(){
-        int randomPoint = Random.Range(0, spawnPoint.Length);
-        Instantiate(healer, spawnPoint[randomPoint].position, spawnPoint[randomPoint].rotation);
-        timerHealer = 0;
-    }
+   public void SpawnTroopers(){
 
-    IEnumerator WaitBeforeSpawning()
+        MRUKRoom room = MRUK.Instance.GetCurrentRoom();
+        
+        int currentTry = 0;
+
+    while(currentTry < spawnTry){
+
+    
+        bool hasFoundPosition = room.GenerateRandomPositionOnSurface(MRUK.SurfaceType.VERTICAL, minEdgeDistance, LabelFilter.Included(spawnLabels), out Vector3 pos, out Vector3 norm);
+
+            if(hasFoundPosition){
+                Vector3 randomPositionNormalOffset = pos + norm * normalOffset;
+                randomPositionNormalOffset.y = 0;
+                timerTrooper = 0;
+                Instantiate(trooper, randomPositionNormalOffset, Quaternion.identity);  
+
+                return;
+            }
+            else{
+                currentTry++;
+                Debug.Log("je ne fonctionne pas" + currentTry);
+            }
+        
+        
+        
+     }
+
+}
+
+
+
+public void SpawnRange(){
+
+        MRUKRoom room = MRUK.Instance.GetCurrentRoom();
+        
+        int currentTry = 0;
+
+    while(currentTry < spawnTry){
+
+    
+        bool hasFoundPosition = room.GenerateRandomPositionOnSurface(MRUK.SurfaceType.VERTICAL, minEdgeDistance, LabelFilter.Included(spawnLabels), out Vector3 pos, out Vector3 norm);
+
+            if(hasFoundPosition){
+                Vector3 randomPositionNormalOffset = pos + norm * normalOffset;
+                randomPositionNormalOffset.y = 0;
+                
+                Instantiate(range, randomPositionNormalOffset, Quaternion.identity);  
+                timerRange = 0;
+                return;
+            }
+            else{
+                currentTry++;
+                Debug.Log("je ne fonctionne pas" + currentTry);
+            }
+        
+        
+        
+     }
+
+}
+
+
+
+public void SpawnHealer(){
+
+        MRUKRoom room = MRUK.Instance.GetCurrentRoom();
+        
+        int currentTry = 0;
+
+    while(currentTry < spawnTry){
+
+    
+        bool hasFoundPosition = room.GenerateRandomPositionOnSurface(MRUK.SurfaceType.VERTICAL, minEdgeDistance, LabelFilter.Included(spawnLabels), out Vector3 pos, out Vector3 norm);
+
+            if(hasFoundPosition){
+                Vector3 randomPositionNormalOffset = pos + norm * normalOffset;
+                randomPositionNormalOffset.y = 0;
+                
+                Instantiate(healer, randomPositionNormalOffset, Quaternion.identity);  
+                timerHealer = 0;
+                return;
+            }
+            else{
+                currentTry++;
+                Debug.Log("je ne fonctionne pas" + currentTry);
+            }
+        
+        
+        
+     }
+
+}
+
+
+
+
+
+
+
+
+IEnumerator WaitBeforeSpawning()
     {
         isWaiting = true;
         Debug.Log("5 secondes avant la prochaine vague");
@@ -91,5 +191,11 @@ public class SpawnManager : MonoBehaviour
         enemiesPerWave += waveOffset; //<-- Incrementation pour plus d'ennemis
         isWaiting = false;
         enemiDejaApparu = 0;
+        vagueFini++;
+
+
     }
+
+
+
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9017451688944823951}
   - component: {fileID: 2482809477145950406}
   - component: {fileID: 8850978138778894103}
+  - component: {fileID: 1434700799310794734}
   m_Layer: 0
   m_Name: placeholder_enemy2
   m_TagString: Monster
@@ -143,3 +144,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2482809477145950406}
   speed: 1
+--- !u!114 &1434700799310794734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811310399630256215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fc2d80a4909bed439d82f8c6de0c5db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infoMonster: {fileID: 11400000, guid: 7491f58e03d401a4bb9e0198be1c037f, type: 2}
+  infoDegat: {fileID: 11400000, guid: e6b18c8d8b47e434ebf5fed604df0205, type: 2}
