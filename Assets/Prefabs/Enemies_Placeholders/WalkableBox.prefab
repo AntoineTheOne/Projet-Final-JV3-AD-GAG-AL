@@ -119,12 +119,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OverrideArea: 1
-  m_Area: 1
+  m_Area: 0
   m_OverrideGenerateLinks: 0
   m_GenerateLinks: 1
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
+  m_AffectedAgents: 00000000
 --- !u!1 &7768781759095814041
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1280230247344113561}
   m_Layer: 0
-  m_Name: Obstacle Box
+  m_Name: WalkableBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

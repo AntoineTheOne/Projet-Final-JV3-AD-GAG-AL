@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe0c6a7883a2f84194cb92f5644cb52, type: 3}
   m_Name: DegatMunition
   m_EditorClassIdentifier: 
-  degatLaser: 0
-  degatMissile: 0
+  degatLaser: 2
+  degatMissile: 5
