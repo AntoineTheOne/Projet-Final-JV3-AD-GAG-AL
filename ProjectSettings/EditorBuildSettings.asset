@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Accueil.unity
+    guid: c61dd826b9cb26d4295e073a6553d2ea
+  - enabled: 1
+    path: Assets/Scenes/Niveau_1.unity
+    guid: f28f2ef0df969774a90862b7d03f4a02
+  - enabled: 0
+    path: Assets/Scenes/Teste_NavMesh.unity
+    guid: 9df95f1b506bf364f9cbc22a821760e0
+  - enabled: 1
+    path: Assets/Scenes/Niveau_2.unity
+    guid: 630fa627eaa864d40af3f45a7fad0047
+  - enabled: 1
+    path: Assets/Scenes/FinDePartieReussi.unity
+    guid: d717303ddd22f8f48943c9952ca2ce8b
+  - enabled: 1
+    path: Assets/Scenes/FinDePartieEchec.unity
+    guid: 829a877febddcad47878ba70d10dad9f
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0a5ab4b862d8969419a32cacb33f897a,
       type: 2}

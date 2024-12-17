@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ennemi
+  - Monster
+  - Chest
+  - Soin
+  - Tourelle
+  - CinemachineTarget
+  - Laser
+  - Missile
+  - TourPrincipal
+  - Sniper
   layers:
   - Default
   - TransparentFX
