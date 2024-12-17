@@ -37,6 +37,10 @@ public class PerteDeVieMonster : MonoBehaviour
         {
             nbDeVieMonster -= infoDegat.degatMissile;
         }
+        if (collision.gameObject.tag == "Sniper")
+        {
+            nbDeVieMonster -= infoDegat.degatSniper;
+        }
     }
 
 

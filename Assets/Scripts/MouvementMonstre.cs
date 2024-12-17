@@ -22,7 +22,7 @@ public class MouvementMonstre : MonoBehaviour
 
     private GameObject TrouverTourLaPlusProche()
     {
-        GameObject[] tours = GameObject.FindGameObjectsWithTag("Tourelle");
+        GameObject[] tours = GameObject.FindGameObjectsWithTag("TourPrincipal");
         GameObject tourProche = null;
         float distanceMin = Mathf.Infinity;
 

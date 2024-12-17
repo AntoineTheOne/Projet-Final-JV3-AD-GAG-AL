@@ -25,43 +25,12 @@ Transform:
   m_GameObject: {fileID: 1042998718951110806}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -9.09, z: 2.83}
+  m_LocalPosition: {x: 0, y: -36.1, z: 2.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5303843591828640547}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &2070587084394412926
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5302620672552733451}
-  m_Layer: 0
-  m_Name: PointDeSoin
-  m_TagString: Soin
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &5302620672552733451
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2070587084394412926}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.027, y: 1.64, z: -0.001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3945975419386625469}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3422803961987595379
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,12 +307,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.29, y: 0, z: 30.17}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 126418695274916562}
   - {fileID: 2447043928613200217}
-  - {fileID: 5302620672552733451}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3362501126906523073
@@ -383,10 +351,7 @@ MonoBehaviour:
   teteTourelle: {fileID: 2447043928613200217}
   canon: {fileID: 847964834988248513}
   nextFire: 0
-  pointDeSoin: {fileID: 2070587084394412926}
   infoTour: {fileID: 11400000, guid: 2ed0e2d48af5ec14f97972cd80a67cbb, type: 2}
-  pointdeVieTourelle: 0
-  canHeald: 0
 --- !u!65 &6599218214557248630
 BoxCollider:
   m_ObjectHideFlags: 0

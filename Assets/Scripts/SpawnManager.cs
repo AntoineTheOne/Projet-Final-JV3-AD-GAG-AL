@@ -6,13 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
-
-[SerializeField] private float spawnTimerTrooper = 3;
-[SerializeField] private float spawnTimerRange = 5;
-[SerializeField] private float spawnTimerHealer = 10;
- [SerializeField] private GameObject trooper;
- [SerializeField] private GameObject range;
- [SerializeField] private GameObject healer;
 [SerializeField] private float minEdgeDistance = 0.3f;
 
 public MRUKAnchor.SceneLabels spawnLabels;
@@ -21,34 +14,32 @@ public float normalOffset;
 
 [SerializeField] private int enemiDejaApparu = 0;
 
-float timerTrooper;
-float timerRange;
-float timerHealer;
-
-
-[SerializeField] int enemiesPerWave = 15; //nb maximal d'ennemis en jeu
-[SerializeField] int waveOffset = 5; //nb d'ennemis en plus a chaque vague
 int ennemisEnJeu; //nb d'ennemis en jeu
 
  bool isWaiting; //Savoir si on est en pause ou non
 
  [SerializeField] private string sceneName;
+    [SerializeField] private string sceneNameEchec;
+    private float tourPrincipalActive = 0;
 
 private GameObject[] tourPrincipal;
-
-
 public int spawnTry;
+
+[SerializeField] private InfoNiveau infoNiveau;
 
 private void Update() {
 
-
+if(tourPrincipalActive == 1 && tourPrincipal == null)
+            {
+                SceneManager.LoadScene(sceneNameEchec);
+            }
 
     tourPrincipal = GameObject.FindGameObjectsWithTag("TourPrincipal");
 
 
 
 
-    if(vagueFini == 5){
+    if(vagueFini == infoNiveau.maxWave){
        SceneManager.LoadScene(sceneName);
 
     }
@@ -61,34 +52,37 @@ private void Update() {
          }
 
 if(tourPrincipal.Length == 1){
+            tourPrincipalActive = 1;
+
+            
         
     if(!MRUK.Instance && MRUK.Instance.IsInitialized)
         return;
 
     
-        if(ennemisEnJeu <= enemiesPerWave && enemiDejaApparu < enemiesPerWave){
-            timerTrooper += Time.deltaTime;
-            timerRange += Time.deltaTime;
-            timerHealer += Time.deltaTime;
+        if(ennemisEnJeu <= infoNiveau.enemiesPerWave && enemiDejaApparu < infoNiveau.enemiesPerWave){
+            infoNiveau.timerTrooper += Time.deltaTime;
+            infoNiveau.timerRange += Time.deltaTime;
+            infoNiveau.timerHealer += Time.deltaTime;
             Debug.Log("ennemis en jeu: " + ennemisEnJeu);
 
-            if(timerTrooper > spawnTimerTrooper && ennemisEnJeu < enemiesPerWave){
+            if(infoNiveau.timerTrooper > infoNiveau.spawnTimerTrooper && ennemisEnJeu < infoNiveau.enemiesPerWave){
                 SpawnTroopers();
                 enemiDejaApparu++;
             }
 
-            else if(timerRange > spawnTimerRange && ennemisEnJeu < enemiesPerWave){
+            else if(infoNiveau.timerRange > infoNiveau.spawnTimerRange && ennemisEnJeu < infoNiveau.enemiesPerWave){
                 SpawnRange();
                 enemiDejaApparu++;
             }
 
-            else if(timerHealer >spawnTimerHealer && ennemisEnJeu < enemiesPerWave){
+            else if(infoNiveau.timerHealer > infoNiveau.spawnTimerHealer && ennemisEnJeu < infoNiveau.enemiesPerWave){
                 SpawnHealer();
                 enemiDejaApparu++;
             }
         }
 
-        else if(ennemisEnJeu == 0 && enemiDejaApparu == enemiesPerWave){
+        else if(ennemisEnJeu == 0 && enemiDejaApparu == infoNiveau.enemiesPerWave){
             StartCoroutine(WaitBeforeSpawning());
         }
 
@@ -115,8 +109,8 @@ if(tourPrincipal.Length == 1){
             if(hasFoundPosition){
                 Vector3 randomPositionNormalOffset = pos + norm * normalOffset;
                 randomPositionNormalOffset.y = 0;
-                timerTrooper = 0;
-                Instantiate(trooper, randomPositionNormalOffset, Quaternion.identity);  
+                infoNiveau.timerTrooper = 0;
+                Instantiate(infoNiveau.trooper, randomPositionNormalOffset, Quaternion.identity);  
 
                 return;
             }
@@ -148,8 +142,8 @@ public void SpawnRange(){
                 Vector3 randomPositionNormalOffset = pos + norm * normalOffset;
                 randomPositionNormalOffset.y = 0;
                 
-                Instantiate(range, randomPositionNormalOffset, Quaternion.identity);  
-                timerRange = 0;
+                Instantiate(infoNiveau.range, randomPositionNormalOffset, Quaternion.identity);
+                infoNiveau.timerRange = 0;
                 return;
             }
             else{
@@ -180,8 +174,8 @@ public void SpawnHealer(){
                 Vector3 randomPositionNormalOffset = pos + norm * normalOffset;
                 randomPositionNormalOffset.y = 0;
                 
-                Instantiate(healer, randomPositionNormalOffset, Quaternion.identity);  
-                timerHealer = 0;
+                Instantiate(infoNiveau.healer, randomPositionNormalOffset, Quaternion.identity);
+                infoNiveau.timerHealer = 0;
                 return;
             }
             else{
@@ -204,14 +198,14 @@ public void SpawnHealer(){
 
 IEnumerator WaitBeforeSpawning()
     {
-        vagueFini++;
+        
         isWaiting = true;
         Debug.Log("5 secondes avant la prochaine vague");
         yield return new WaitForSeconds(5);
-        enemiesPerWave += waveOffset; //<-- Incrementation pour plus d'ennemis
+        infoNiveau.enemiesPerWave += infoNiveau.waveOffset; //<-- Incrementation pour plus d'ennemis
         isWaiting = false;
         enemiDejaApparu = 0;
-        
+        vagueFini++;
 
 
     }

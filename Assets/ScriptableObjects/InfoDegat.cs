@@ -8,5 +8,6 @@ public class InfoDegat : ScriptableObject
 {
    public float degatLaser;
    public float degatMissile;
+    public float degatSniper;
 
 }

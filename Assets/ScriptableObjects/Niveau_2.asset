@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20d85d78f90af349b6a28ae2fd6e2ca, type: 3}
+  m_Name: Niveau_2
+  m_EditorClassIdentifier: 
+  enemiesPerWave: 15
+  waveOffset: 7
+  maxWave: 7
+  trooper: {fileID: 489422306830084542, guid: e0b014b39004ae844bea35b331ab5867, type: 3}
+  range: {fileID: 1811310399630256215, guid: 5c15dab5d906ce6438edda8e6439ece3, type: 3}
+  healer: {fileID: 8120052684220204235, guid: 53dfcf0424137e04faff81b4c93433bb, type: 3}
+  timerTrooper: 3
+  timerRange: 5
+  timerHealer: 10
